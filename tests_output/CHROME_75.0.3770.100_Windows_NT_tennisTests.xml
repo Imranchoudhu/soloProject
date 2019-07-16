@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="tennisTests"
+    errors="0" failures="0" hostname="" id="" package="tennisTests" skipped="0"
+    tests="1" time="4.190" timestamp="">
+  
+    <testcase name="Search and Filter" classname="tennisTests" time="4.190" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>
