@@ -26,7 +26,7 @@ var manager = {
             .verify.containsText('@result', add.filtered)
         return this
     },
-    nikeFilter: function (add){
+    nikeFilter: function (add) {
         this
             .waitForElementPresent('@searchBtn', 5000)
             .clearValue('@searchBtn')
@@ -39,10 +39,18 @@ var manager = {
             .waitForElementPresent('@result', 5000)
             .verify.containsText('@result', add.filtered)
         return this
+    },
+    menShoes: function(present){
+        this
+        .waitForElementPresent('@searchBtn', 5000)
+        .click('@mensCategory')
+        .waitForElementPresent('@searchBtn', 5000)
+        .verify.containsText('@clickForDetails', present.name)
+        .click('@nike')
+        return this
 
 
-
-    }
+         }
 
 
 
@@ -72,10 +80,18 @@ module.exports = {
         sortaToz: {
             selector: '(//*[@class="ui-menu-item"])[1]',
             locateStrategy: 'xpath'
+        },
+        mensCategory: `[title="Men's Tennis Homepage"]`,
+        
 
+        clickForDetails: '[class="click"]',
+        nike:{
+            selector:'(//ul[@class="lnav_section"])[4]/li[2]',
+            locateStrategy: 'xpath'
 
+        },
 
 
     }
-}
+
 }

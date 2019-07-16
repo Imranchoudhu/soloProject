@@ -16,6 +16,16 @@ module.exports = {
 
             
         },
+    'Mens shoe add and remove ': browser => {
+        tennisPage
+        .menShoes({name: 'Click for Details'})
+        
+
+
+
+    }
+
+
     
     
 
