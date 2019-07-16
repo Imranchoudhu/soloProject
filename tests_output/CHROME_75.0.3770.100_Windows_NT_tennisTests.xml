@@ -5,9 +5,23 @@
 
   <testsuite name="tennisTests"
     errors="0" failures="0" hostname="" id="" package="tennisTests" skipped="0"
-    tests="1" time="4.190" timestamp="">
+    tests="1" time="6.845" timestamp="">
   
-    <testcase name="Search and Filter" classname="tennisTests" time="4.190" assertions="3">
+    <testcase name="Search and Filter" classname="tennisTests" time="6.845" assertions="10">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 
