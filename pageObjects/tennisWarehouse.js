@@ -1,4 +1,4 @@
-var lacoste = {
+var manager = {
     apparelFilter: function (add) {
         this
             .waitForElementPresent('@searchBtn', 5000)
@@ -50,7 +50,7 @@ var lacoste = {
 }
 module.exports = {
     url: 'https://www.tennis-warehouse.com/',
-    commands: [lacoste],
+    commands: [manager],
     elements: {
         searchBtn: '#searchtext',
         logIn: '.ac_login',
