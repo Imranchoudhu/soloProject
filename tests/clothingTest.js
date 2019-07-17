@@ -1,6 +1,6 @@
 var tennisPage = {}
 module.exports = {
-    beforeEach: browser =>{
+    beforeEach: browser => {
         tennisPage = browser.page.tennisWarehouse()
         tennisPage.navigate()
     },
@@ -8,25 +8,20 @@ module.exports = {
         browser.end()
     },
 
-     'Search and Filter': browser => {
-         tennisPage
-            .apparelFilter({name: 'Lacoste', filtered: 'Laco&#115;te' })
-            .adidasFilter({name: 'adidas', filtered: 'adida&#115'})
-            .nikeFilter({name: 'nike', filtered: 'nike'})
-
-            
-        },
-    'Mens shoe add and remove ': browser => {
+    'Search and Filter': browser => {
         tennisPage
-        .menShoes({name: 'Click for Details'})
-        
+            .apparelFilter({ name: 'Lacoste', filtered: 'Lacoste' })
+            .adidasFilter({ name: 'adidas', filtered: 'adidas' })
+            .nikeFilter({ name: 'nike', filtered: 'nike' })
 
 
+     },
+    'Customer Sevice': browser => {
+        tennisPage
+            .customerService({ name: 'Click for Details' })
+            .orderTracking({name: 'Click for Details', orderNumber: '1234', phone: '123456678' })
 
-    }
 
-
-    
-    
+     },
 
 }

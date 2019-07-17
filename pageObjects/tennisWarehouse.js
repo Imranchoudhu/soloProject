@@ -1,6 +1,7 @@
 var manager = {
     apparelFilter: function (add) {
         this
+            .maximizeWindow()
             .waitForElementPresent('@searchBtn', 5000)
             .setValue('@searchBtn', add.name)
             .click('@searchIcon')
@@ -14,6 +15,7 @@ var manager = {
     },
     adidasFilter: function (add) {
         this
+            .click('@homeLink')
             .waitForElementPresent('@searchBtn', 5000)
             .clearValue('@searchBtn')
             .setValue('@searchBtn', add.name)
@@ -28,6 +30,7 @@ var manager = {
     },
     nikeFilter: function (add) {
         this
+            .click('@homeLink')
             .waitForElementPresent('@searchBtn', 5000)
             .clearValue('@searchBtn')
             .setValue('@searchBtn', add.name)
@@ -40,21 +43,43 @@ var manager = {
             .verify.containsText('@result', add.filtered)
         return this
     },
-    menShoes: function(present){
+    customerService: function (data) {
         this
-        .waitForElementPresent('@searchBtn', 5000)
-        .click('@mensCategory')
-        .waitForElementPresent('@searchBtn', 5000)
-        .verify.containsText('@clickForDetails', present.name)
-        .click('@nike')
+            .maximizeWindow()
+            .waitForElementPresent('@searchBtn', 5000)
+            .verify.containsText('@clickForDetails', data.name)
+            .waitForElementVisible('@nike')
+            .moveToElement('@customerService', 10, 10)
+            .waitForElementVisible('[title="Continue to our contact information"]')
+            .click('[title="Continue to our contact information"]')
+            .api.useXpath()
+            .verify.containsText('(//*[@class="main_head"])[1]', 'Contact Us')
+            .useCss()
         return this
 
-
-         }
-
-
-
-
+    },
+    orderTracking: function (data) {
+        this
+            .click('@homeLink')
+            .waitForElementPresent('@searchBtn', 5000)
+            .verify.containsText('@clickForDetails', data.name)
+            .waitForElementVisible('@nike')
+            .moveToElement('@customerService', 10, 10)
+            .waitForElementVisible('[title="Continue to our Order Tacking page"]')
+            .click('[title="Continue to our Order Tacking page"]')
+            .api.useXpath()
+            .waitForElementPresent('//h1[text()="Order Tracking"]')
+            .useCss()
+            .setValue('#ord', data.orderNumber)
+            .setValue('#phone', data.phone)
+            .click('.data_close')
+            .click('[class="cust_serv_button"]')
+            .useXpath()
+            .waitForElementVisible('//b[text()="Invalid order or phone number."]')
+            .verify.containsText('//b[text()="Invalid order or phone number."]', 'Invalid order or phone number.')
+            .useCss()
+        return this
+    },
 }
 module.exports = {
     url: 'https://www.tennis-warehouse.com/',
@@ -82,16 +107,20 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         mensCategory: `[title="Men's Tennis Homepage"]`,
-        
+
 
         clickForDetails: '[class="click"]',
-        nike:{
-            selector:'(//ul[@class="lnav_section"])[4]/li[2]',
+        nike: {
+            selector: '(//a[text()="Nike"])[1]',
             locateStrategy: 'xpath'
 
         },
+        customerService: {
+            selector: '(//*[@class="gnavdroplink"])[2]',
+            locateStrategy: 'xpath'
 
+        },
+        homeLink: '#home_link',
 
-    }
-
+    },
 }
