@@ -5,19 +5,19 @@ module.exports = [
     },
     {
         email:'tawfique@tawfique.com',
-        pass:'1234'
+        pass:'5678'
     },
     {
         email:'sam@sam.com',
-        pass:'1234'
+        pass:'91011'
     },
     {
         email:'hakan@hakan.com',
-        pass:'1234'
+        pass:'121314'
     },
     {
         email:'bri@chantelwilliams.com',
-        pass:'1234'
+        pass:'15161718'
     }
 
 

@@ -21,12 +21,12 @@ module.exports = {
     'Customer Sevice': browser => {
         tennisPage
             .customerService({ name: 'Click for Details' })
-            .navToTrack()
+            .navToTrack({name: 'Click for Details'})
         order.forEach(test => {
             tennisPage
                 .orderTracking(test)
         })
 
     },
-
+    
 }

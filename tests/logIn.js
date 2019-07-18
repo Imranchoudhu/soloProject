@@ -11,15 +11,18 @@ module.exports = {
     'logIn Error ': browser => {
         tennisPage
         .maximizeWindow()
-        .click('.data_close')
+        .click('@closeCookiePopUp')
         .waitForElementPresent('@searchBtn', 5000)
         access.forEach(test=>{
             tennisPage
             .navtologin(test)
-        }
+        
+        })
+    },
+     
 
 
-        )
+        
 
         
 
@@ -32,4 +35,3 @@ module.exports = {
 
 
 
-}

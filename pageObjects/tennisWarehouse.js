@@ -58,11 +58,11 @@ var manager = {
         return this
 
     },
-    navToTrack: function () {
+    navToTrack: function (data) {
         this
             .click('@homeLink')
             .waitForElementPresent('@searchBtn', 5000)
-            .verify.containsText('@clickForDetails', 'Click for Details')
+            .verify.containsText('@clickForDetails', data.name)
             .waitForElementVisible('@nike')
             .moveToElement('@customerService', 10, 10)
             .waitForElementVisible('[title="Continue to our Order Tacking page"]')
@@ -72,7 +72,7 @@ var manager = {
             .waitForElementPresent('//h1[text()="Order Tracking"]')
             .api.useCss()
         this
-            .click('.data_close')
+            .click('@closeCookiePopUp')
         return this
     },
     orderTracking: function (data) {
@@ -103,19 +103,13 @@ var manager = {
             .setValue('@pass', data.pass)
             .click('@enterAccount')
             .waitForElementPresent('@logInError')
-            .verify.containsText('@logInError', 'The login and password you entered are invalid. Please try again.', 5000 )
+            .verify.containsText('@logInError', 'The login and password you entered are invalid. Please try again.', 5000)
         return this
-
-
-
-
-
-
-
-
-    }
-
+    },
+    
+    
 }
+
 module.exports = {
     url: 'https://www.tennis-warehouse.com/',
     commands: [manager],
@@ -156,13 +150,14 @@ module.exports = {
 
         },
         homeLink: '#home_link',
-
-
+        
+        
         logIn: '.ac_login',
         email: '#email_field',
         pass: '#pass_field',
         enterAccount: '.account_button',
-        logInError: '.login_error'
+        logInError: '.login_error',
+        closeCookiePopUp:'.data_close'
     }
 
 }
