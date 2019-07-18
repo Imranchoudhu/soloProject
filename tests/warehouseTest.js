@@ -1,3 +1,4 @@
+var order = require('../testAssests/array')
 var tennisPage = {}
 module.exports = {
     beforeEach: browser => {
@@ -7,6 +8,7 @@ module.exports = {
     after: browser => {
         browser.end()
     },
+
 
     'Search and Filter': browser => {
         tennisPage
@@ -19,9 +21,12 @@ module.exports = {
     'Customer Sevice': browser => {
         tennisPage
             .customerService({ name: 'Click for Details' })
-            .orderTracking({name: 'Click for Details', orderNumber: '1234', phone: '123456678' })
+            .navToTrack()
+        order.forEach(test => {
+            tennisPage
+                .orderTracking(test)
+        })
 
-
-     },
+    },
 
 }
