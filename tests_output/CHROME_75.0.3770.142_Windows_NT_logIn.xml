@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="1"
-            failures="0"
+            failures="1"
             tests="1">
 
   <testsuite name="logIn"
-    errors="1" failures="0" hostname="" id="" package="logIn" skipped="0"
-    tests="1" time="3.044" timestamp="">
+    errors="1" failures="1" hostname="" id="" package="logIn" skipped="1"
+    tests="1" time="16.92" timestamp="">
   
-    <testcase name="alertTest " classname="logIn" time="3.044" assertions="2">
-
-    
+    <testcase name="logIn Error " classname="logIn" time="16.92" assertions="1">  <failure message="Timed out while waiting for element &lt;#searchtext&gt; to be present for 5000 milliseconds. - expected [0;32m&#34;found&#34;[0m but got: [0;31m&#34;not found&#34;[0m">    at processTicksAndRejections (internal/process/task_queues.js:89:5)</failure>
 
     
     </testcase>
@@ -17,6 +15,13 @@
 
   
 
+  
+    
+    <testcase
+      name="Missing details" classname="logIn">
+      <skipped />
+    </testcase>
+    
   
   </testsuite>
 </testsuites>

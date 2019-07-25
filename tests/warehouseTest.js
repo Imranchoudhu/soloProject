@@ -12,21 +12,22 @@ module.exports = {
 
     'Search and Filter': browser => {
         tennisPage
-            .apparelFilter({ name: 'Lacoste', filtered: 'Lacoste' })
+            .lacosteFilter({ name: 'Lacoste', filtered: 'Lacoste' })
             .adidasFilter({ name: 'adidas', filtered: 'adidas' })
             .nikeFilter({ name: 'nike', filtered: 'nike' })
 
 
-     },
+
+    },
     'Customer Sevice': browser => {
         tennisPage
-            .customerService({ name: 'Click for Details' })
-            .navToTrack({name: 'Click for Details'})
+            .contactUs({ name: 'Click for Details' })
+            .navToTrack({ name: 'Click for Details' })
         order.forEach(test => {
             tennisPage
                 .orderTracking(test)
         })
 
     },
-    
+
 }

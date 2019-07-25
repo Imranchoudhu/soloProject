@@ -17,7 +17,7 @@ module.exports = {
     "test_workers" : true,
     "default": {
       "launch_url": "http://localhost",
-      "selenium_port": 4445,
+      "selenium_port": 4444,
       "selenium_host": "localhost",
       "silent": true,
       "screenshots": {

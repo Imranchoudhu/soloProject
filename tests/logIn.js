@@ -10,25 +10,35 @@ module.exports = {
     },
     'logIn Error ': browser => {
         tennisPage
-        .maximizeWindow()
-        .click('@closeCookiePopUp')
-        .waitForElementPresent('@searchBtn', 5000)
-        access.forEach(test=>{
+            .maximizeWindow()
+            .click('@closeCookiePopUp')
+            .waitForElementPresent('@searchBtn', 5000)
+        access.forEach(test => {
             tennisPage
-            .navtologin(test)
-        
+                .logIn(test)
+
+
         })
     },
-     
+    'Missing details': browser => {
+        tennisPage
+            .click('#home_link')
+            .missingDetails({ email: 'Imran@imran.com' })
+            .api.acceptAlert()
 
 
-        
-
-        
-
-
-    
     }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

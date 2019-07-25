@@ -1,5 +1,5 @@
 var manager = {
-    apparelFilter: function (add) {
+    lacosteFilter: function (add) {
         this
             .maximizeWindow()
             .waitForElementPresent('@searchBtn', 5000)
@@ -8,7 +8,7 @@ var manager = {
             .waitForElementPresent('@result', 5000)
             .verify.containsText('@result', add.name)
             .click('@filter')
-            .click('@lowestToHigest')
+            .click('@sortZtoA')
             .waitForElementPresent('@result', 5000)
             .verify.containsText('@result', add.filtered)
         return this
@@ -43,7 +43,7 @@ var manager = {
             .verify.containsText('@result', add.filtered)
         return this
     },
-    customerService: function (data) {
+    contactUs: function (data) {
         this
             .maximizeWindow()
             .waitForElementPresent('@searchBtn', 5000)
@@ -92,7 +92,7 @@ var manager = {
             .api.back()
         return this
     },
-    navtologin: function (data) {
+    logIn: function (data) {
         this
             .verify.containsText('@clickForDetails', 'Click for Details')
             .click('@logIn')
@@ -106,8 +106,19 @@ var manager = {
             .verify.containsText('@logInError', 'The login and password you entered are invalid. Please try again.', 5000)
         return this
     },
-    
-    
+    missingDetails: function (data) {
+        this
+            .verify.containsText('@clickForDetails', 'Click for Details')
+            .click('@logIn')
+            .waitForElementPresent('@email')
+            .clearValue('@email')
+            .setValue('@email', data.email)
+            .click('@enterAccount')
+        return this
+
+    }
+
+
 }
 
 module.exports = {
@@ -123,6 +134,7 @@ module.exports = {
             locateStrategy: 'xpath'
 
         },
+        sortZtoA: '#ui-id-4',
         lowestToHigest: {
             selector: '(//*[@class="ui-menu-item"])[2]',
             locateStrategy: 'xpath'
@@ -150,14 +162,14 @@ module.exports = {
 
         },
         homeLink: '#home_link',
-        
-        
+
+
         logIn: '.ac_login',
         email: '#email_field',
         pass: '#pass_field',
         enterAccount: '.account_button',
         logInError: '.login_error',
-        closeCookiePopUp:'.data_close'
+        closeCookiePopUp: '.data_close'
     }
 
 }
